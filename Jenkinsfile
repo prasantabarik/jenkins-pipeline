@@ -28,7 +28,7 @@ node {
 
     stage('Sonar'){
         try {
-            sh "mvn sonar:sonar"
+            sh "mvn sonar:sonar -Dsonar.host.url=http://51.105.108.88:8100 -Dsonar.login=5799e785304ba9239838434714bd6102e650a1d5"
         } catch(error){
             echo "The sonar server could not be reached ${error}"
         }

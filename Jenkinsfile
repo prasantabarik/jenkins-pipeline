@@ -1,10 +1,9 @@
 def CONTAINER_NAME="jenkins-pipeline"
 def CONTAINER_TAG="latest"
-def DOCKER_HUB_USER="debjyotidas"
 def HTTP_PORT="8090"
 def NEXUS_VERSION = "nexus3"
 def NEXUS_PROTOCOL = "http"
-def NEXUS_URL = "40.119.156.12:8081"
+def NEXUS_URL = "52.149.108.97:8081"
 def NEXUS_REPOSITORY = "repository-example"
 def NEXUS_CREDENTIAL_ID = "nexus-credentials"
 
@@ -28,7 +27,7 @@ node {
 
     stage('Sonar'){
         try {
-            sh "mvn sonar:sonar -Dsonar.host.url=http://51.105.108.88:8100 -Dsonar.login=eeea92387423243b9455f0725e4ab8969d41de5c"
+            sh "mvn sonar:sonar -Dsonar.host.url=http://51.124.55.156:8100 -Dsonar.login=c07f3cf9069396bd8a1378986cc0ad7ce9cdb432"
         } catch(error){
             echo "The sonar server could not be reached ${error}"
         }

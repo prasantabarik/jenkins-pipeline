@@ -4,7 +4,7 @@ def HTTP_PORT="8090"
 def NEXUS_VERSION = "nexus3"
 def NEXUS_PROTOCOL = "http"
 def NEXUS_URL = "52.143.30.70:8081"
-def NEXUS_REPOSITORY = "repository-example"
+def NEXUS_REPOSITORY = "DebjyotiDas-332488"
 def NEXUS_CREDENTIAL_ID = "nexus-credentials"
 
 

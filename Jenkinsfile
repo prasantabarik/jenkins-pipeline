@@ -3,7 +3,7 @@ def CONTAINER_TAG="latest"
 def HTTP_PORT="8090"
 def NEXUS_VERSION = "nexus3"
 def NEXUS_PROTOCOL = "http"
-def NEXUS_URL = "20.50.53.143:8081"
+def NEXUS_URL = "51.138.100.234:8081"
 def NEXUS_REPOSITORY = "repository-example"
 def NEXUS_CREDENTIAL_ID = "nexus-credentials"
 
@@ -27,7 +27,7 @@ node {
 
     stage('Sonar'){
         try {
-            sh "mvn sonar:sonar -Dsonar.host.url=http://52.143.29.181:8100 -Dsonar.login=684656b7a1b02c130c9876124828be7a24a9a7c7"
+            sh "mvn sonar:sonar -Dsonar.host.url=http://51.105.238.6:8100 -Dsonar.login=18691a171f01ccd63fe41ea0c7afb9540893d394"
         } catch(error){
             echo "The sonar server could not be reached ${error}"
         }

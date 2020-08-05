@@ -11,7 +11,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <sonar.host.url>http://51.124.134.184:8100</sonar.host.url>
+        <sonar.host.url>http://52.143.7.186/debjyoti/sonarqube</sonar.host.url>
         <java.version>1.8</java.version>
 	<jacoco.version>0.8.3</jacoco.version>
         <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>

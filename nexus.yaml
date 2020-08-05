@@ -22,13 +22,16 @@ spec:
             cpu: "1000m"
           requests:
             memory: "2Gi"
-            cpu: "500m"
+            cpu: "50m"
         ports:
         - containerPort: 8081
           name: nexusport
         volumeMounts:
         - name: nexus-data
           mountPath: /nexus-data
+        env:
+        - name: NEXUS_CONTEXT
+          value: debjyoti/nexus
       volumes:
       - name: nexus-data
         emptyDir: {}
@@ -47,4 +50,4 @@ spec:
     name: nexusport
   selector:
     app: nexus-332488
-  type: LoadBalancer
+  type: ClusterIP

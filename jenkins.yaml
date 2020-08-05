@@ -1,34 +1,66 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: jenkins-deployment-332488
+  creationTimestamp: null
+  labels:
+    app: jenkins-332488
+  name: jenkins-332488
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: jenkins-332488
+  strategy: {}
   template:
     metadata:
+      creationTimestamp: null
       labels:
         app: jenkins-332488
     spec:
+      securityContext:
+        fsGroup: 2000
+        runAsUser: 1000
+        runAsNonRoot: true
+      volumes:
+      - name: jenkins-storage
+        persistentVolumeClaim:
+          claimName: jenkins
       containers:
       - name: jenkins-332488
-        image: jenkins/jenkins:latest
-        imagePullPolicy: IfNotPresent
+        image: jenkins/jenkins:lts
+        resources:
+          requests:
+            cpu: 50m
+            memory: 1024Mi
+          limits:
+            cpu: 1000m
+            memory: 2048Mi
         ports:
         - containerPort: 8080
+          name: "http-server"
+        - containerPort: 50000
+          name: "jnlp"
+        resources: {}
+        env:
+        - name: JENKINS_OPTS
+          value: --prefix=/debjyoti/jenkins
+        volumeMounts:
+        - mountPath: "/var/jenkins_home"
+          name: jenkins-storage
+status: {}
 
 ---
 
 apiVersion: v1
 kind: Service
 metadata:
+  labels:
+    app: jenkins-332488
   name: jenkins-332488
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
-  - port: 8000
+  - port: 8080
     targetPort: 8080
   selector:
     app: jenkins-332488

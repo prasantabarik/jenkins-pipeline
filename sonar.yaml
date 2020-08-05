@@ -18,13 +18,15 @@ spec:
       containers:
       - name: sonar-332488
         image: sonarqube:6.7-alpine
+        args:
+        - -Dsonar.web.context=/debjyoti/sonarqube
         imagePullPolicy: IfNotPresent
         resources:
           requests:
-            cpu: 500m
+            cpu: 50m
             memory: 1024Mi
           limits:
-            cpu: 2000m
+            cpu: 1000m
             memory: 2048Mi
         volumeMounts:
         - mountPath: "/opt/sonarqube/data/"
@@ -65,4 +67,4 @@ spec:
     name: sonarport
   selector:
     app: sonar-332488
-  type: LoadBalancer
+  type: ClusterIP

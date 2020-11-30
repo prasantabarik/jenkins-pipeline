@@ -23,8 +23,8 @@ spec:
         dapr.io/app-port: "8080"
     spec:
      containers:
-     - name: scmchangestreamnew
-       image: ghcr.io/prasantabarik/jenkins-pipeline:latest
+     - name: jenkinstest
+       image: ghcr.io/prasantabarik/jenkins-pipeline/jenkins-pipeline:latest
        imagePullPolicy: Always
        resources:
          requests:
@@ -39,12 +39,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: fild-store
+  name: jenkinstest
   labels:
-    app: fild-store
+    app: jenkinstest
 spec:
   type: LoadBalancer
   ports:
-  - port: 8097
+  - port: 8080
   selector:
-    app: fild-store
+    app: jenkinstest

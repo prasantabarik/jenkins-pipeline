@@ -1,0 +1,37 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: jenkinstest
+  labels:
+    app: jenkinstest
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jenkinstest
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      name: jenkinstest
+      labels:
+        app: jenkinstest
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "jenkinstest"
+     #  port is required if you have service running, else comment it
+        dapr.io/app-port: "8080"
+    spec:
+     containers:
+     - name: scmchangestreamnew
+       image: ghcr.io/prasantabarik/jenkins-pipeline:latest
+       imagePullPolicy: Always
+       resources:
+         requests:
+           memory: 1Gi
+           cpu: 200m
+         limits:
+           memory: 1Gi
+           cpu: 250m
+     imagePullSecrets:
+      - name: pullsecret

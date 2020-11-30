@@ -1,0 +1,35 @@
+name: Deploy to AKS Cluster
+on:
+  pull_request:
+    branches:
+    - master
+  push:
+    branches: 
+    - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+         
+    # Set the target AKS cluster.
+    - uses: Azure/aks-set-context@v1
+      with:
+        creds: '${{ secrets.AZURE_CREDENTIALS }}'
+        cluster-name: newaksdaprcont
+        resource-group: newaksdaprrg
+
+ #   - uses: Azure/k8s-create-secret@v1
+ #     with:
+ #       container-registry-url: cloudlifeacr.azurecr.io
+ #       container-registry-username: ${{ secrets.ACR_USERNAME }}
+ #       container-registry-password: ${{ secrets.ACR_PASSWORD }}
+ #       secret-name: k8s-secret
+    # Deploy AKS cluster.
+    - uses: Azure/k8s-deploy@v1
+      with:
+        namespace: fromgh
+        manifests: deployment.yaml
+        images: ghcr.io/prasantabarik/jenkins-pipeline:latest
+        imagepullsecrets: pullsecret

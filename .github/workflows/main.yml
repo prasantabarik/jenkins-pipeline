@@ -31,5 +31,5 @@ jobs:
       with:
         namespace: fromgh
         manifests: deployment.yaml
-        images: ghcr.io/prasantabarik/jenkins-pipeline:latest
+        images: ghcr.io/prasantabarik/jenkins-pipeline/jenkins-pipeline:latest
         imagepullsecrets: pullsecret

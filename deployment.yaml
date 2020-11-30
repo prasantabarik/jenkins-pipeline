@@ -20,7 +20,8 @@ spec:
         dapr.io/enabled: "true"
         dapr.io/app-id: "jenkinstest"
      #  port is required if you have service running, else comment it
-        dapr.io/app-port: "8080"
+        dapr.io/app-port: "8090"
+        dapr.io/config: "appconfig"
     spec:
      containers:
      - name: jenkinstest
@@ -45,6 +46,6 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-  - port: 8080
+  - port: 8090
   selector:
     app: jenkinstest

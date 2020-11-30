@@ -35,3 +35,16 @@ spec:
            cpu: 250m
      imagePullSecrets:
       - name: pullsecret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fild-store
+  labels:
+    app: fild-store
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8097
+  selector:
+    app: fild-store

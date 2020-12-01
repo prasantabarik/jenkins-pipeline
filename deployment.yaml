@@ -1,30 +1,30 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: jenkinstest
+  name: jenkins
   labels:
-    app: jenkinstest
+    app: jenkins
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: jenkinstest
+      app: jenkins
   strategy:
     type: RollingUpdate
   template:
     metadata:
-      name: jenkinstest
+      name: jenkins
       labels:
-        app: jenkinstest
+        app: jenkins
       annotations:
         dapr.io/enabled: "true"
-        dapr.io/app-id: "jenkinstest"
+        dapr.io/app-id: "jenkins"
      #  port is required if you have service running, else comment it
         dapr.io/app-port: "8090"
         dapr.io/config: "appconfig"
     spec:
      containers:
-     - name: jenkinstestnew
+     - name: jenkins
        image: ghcr.io/prasantabarik/jenkins-pipeline/jenkins-pipeline:latest
        imagePullPolicy: Always
        resources:
@@ -40,12 +40,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: jenkinstest
+  name: jenkins
   labels:
-    app: jenkinstest
+    app: jenkins
 spec:
   type: LoadBalancer
   ports:
   - port: 8090
   selector:
-    app: jenkinstest
+    app: jenkins

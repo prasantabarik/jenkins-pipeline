@@ -29,7 +29,7 @@ jobs:
     # Deploy AKS cluster.
     - uses: Azure/k8s-deploy@v1
       with:
-        namespace: fromgh
+        namespace: default
         manifests: deployment.yaml
         images: ghcr.io/prasantabarik/jenkins-pipeline/jenkins-pipeline:latest
         imagepullsecrets: pullsecret

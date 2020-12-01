@@ -9,12 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestTemplate;
 
+
 @Controller
 public class WelcomePageController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    @Autowired
-    private RestTemplate restTemplate;
+    //@Autowired
+    //private RestTemplate restTemplate;
     public String getPage(){
         final String uri = "http://localhost:3500/v1.0/invoke/jenkinstestnew.fromghnew/method/";
 

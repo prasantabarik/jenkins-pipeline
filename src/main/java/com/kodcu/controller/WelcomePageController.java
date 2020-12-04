@@ -23,6 +23,12 @@ public class WelcomePageController {
     String result = restTemplate.getForObject(uri, String.class);
 
     System.out.println(result);
+     final String uri1 = "http://localhost:3500/v1.0/secrets/kubernetes/jenkinssecret?metadata.namespace=fromgh";
+
+    RestTemplate restTemplate1 = new RestTemplate();
+    String result1 = restTemplate1.getForObject(uri1, String.class);
+
+    System.out.println(result1);
         return "index";
     }
 }

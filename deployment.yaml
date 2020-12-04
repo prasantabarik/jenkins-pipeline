@@ -23,6 +23,7 @@ spec:
      # Added the dapr secret
         dapr.io/app-port: "8090"
         dapr.io/config: "appconfig"
+        dapr.io/log-as-json: "true"
     spec:
      containers:
      - name: jenkins

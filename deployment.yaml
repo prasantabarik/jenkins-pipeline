@@ -20,6 +20,7 @@ spec:
         dapr.io/enabled: "true"
         dapr.io/app-id: "jenkins"
      #  port is required if you have service running, else comment it
+     # Added the dapr secret
         dapr.io/app-port: "8090"
         dapr.io/config: "appconfig"
     spec:

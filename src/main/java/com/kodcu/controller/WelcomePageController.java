@@ -21,7 +21,8 @@ public class WelcomePageController {
           RestTemplate restTemplate = new RestTemplate();
           String result = restTemplate.getForObject(uri, String.class);
           System.out.println(result); */
-        //added dar secret store       
+        //added dar secret store  
+        //fetching from keyvault
         final String uri1 = "http://localhost:3500/v1.0/secrets/kubernetes/jenkinssecret?metadata.namespace=default";
         RestTemplate restTemplate1 = new RestTemplate();
         String result1 = restTemplate1.getForObject(uri1, String.class);

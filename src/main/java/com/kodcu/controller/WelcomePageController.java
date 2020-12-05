@@ -17,12 +17,12 @@ public class WelcomePageController {
     //@Autowired
     //private RestTemplate restTemplate;
     public String getPage(){
-        final String uri = "http://localhost:3500/v1.0/invoke/jenkinstestnew.fromghnew/method/";
+        /* final String uri = "http://localhost:3500/v1.0/invoke/jenkinstestnew.fromghnew/method/";
 
     RestTemplate restTemplate = new RestTemplate();
     String result = restTemplate.getForObject(uri, String.class);
 //added dar secret store
-    System.out.println(result);
+    System.out.println(result); */
     /* final String uri1 = "http://localhost:3500/v1.0/secrets/kubernetes/jenkinssecret?metadata.namespace=default";
 
     RestTemplate restTemplate1 = new RestTemplate();

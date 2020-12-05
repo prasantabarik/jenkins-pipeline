@@ -27,6 +27,7 @@ jobs:
  #       container-registry-password: ${{ secrets.ACR_PASSWORD }}
  #       secret-name: k8s-secret
     # Deploy AKS cluster. crete the secret beforehand
+      # Then put the key here
     - uses: Azure/k8s-deploy@v1
       with:
         namespace: default
